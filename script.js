@@ -1,3 +1,55 @@
+document.querySelectorAll('.book-img').forEach(img => {
+  let overlay = null;
+  let zoomed = false;
+
+  img.addEventListener('click', () => {
+    // Create overlay on first click
+    overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      cursor: zoom-out;
+    `;
+
+    const full = document.createElement('img');
+    full.src = img.src;
+    full.style.cssText = `
+      max-width: 50vw;
+      max-height: 50vh;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+      transform: scale(1);
+    `;
+
+    zoomed = false;
+
+    // Toggle zoom in/out on the full image
+    full.addEventListener('click', (e) => {
+      e.stopPropagation();
+      zoomed = !zoomed;
+      full.style.transform = zoomed ? 'scale(1)' : 'scale(1)';
+      full.style.cursor = zoomed ? 'zoom-out' : 'zoom-in';
+    });
+
+    // Close overlay when clicking outside the image
+    overlay.addEventListener('click', () => {
+      overlay.remove();
+      overlay = null;
+      zoomed = false;
+    });
+
+    overlay.appendChild(full);
+    document.body.appendChild(overlay);
+  });
+});
+
 // ── MOBILE NAV TOGGLE ──
 function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
