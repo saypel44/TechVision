@@ -85,3 +85,9 @@ document.addEventListener('click', (e) => {
     nav.classList.remove('open');
   }
 });
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
+});
