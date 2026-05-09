@@ -438,8 +438,8 @@ nav {
 }
 
 .thumb-purple { background: linear-gradient(135deg, #6C47FF, #a07cff); }
-.thumb-orange { background: linear-gradient(135deg, #F4622A, #E8436B); justify-content: center; }
-.thumb-blue   { background: linear-gradient(135deg, #3B82F6, #6C47FF); }
+.thumb-orange { background: linear-gradient(135deg, #f19a77, #eb6f8e); justify-content: center; }
+.thumb-blue   { background: linear-gradient(135deg, #3B82F6, #7f62f3); }
 
 .proj-body { padding: 1.3rem; text-align: center; display: flex; flex-direction: column; flex: 1;}
 .proj-body h4 { font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; font-size: 0.95rem; }
@@ -507,14 +507,14 @@ nav {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1rem, 2.2vw, 1.3rem);
   font-weight: 700;
-  background: linear-gradient(90deg, #F4622A, #E8436B);
+  background: linear-gradient(90deg, #337a30, #318652);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .contact-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.2rem;
 }
 
