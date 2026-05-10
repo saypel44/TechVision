@@ -386,15 +386,15 @@ nav {
 
 /* Individual card colors — nth-child targets within .about-cards */
 .about-cards .about-card:nth-child(1) {
-  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  background: linear-gradient(135deg, #eeeaf1, #8839db);
 }
 
 .about-cards .about-card:nth-child(2) {
-  background: linear-gradient(135deg, #ffe8d6, #ffd6cc);
+  background: linear-gradient(135deg, #ffe8d6, #ec7659);
 }
 
 .about-cards .about-card:nth-child(3) {
-  background: linear-gradient(135deg, #dff7f2, #c7f5e8);
+  background: linear-gradient(135deg, #dff7f2, #31b690);
 }
 
 /* ── Responsive ── */
