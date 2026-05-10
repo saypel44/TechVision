@@ -336,6 +336,22 @@ nav {
 .about-card h4 { font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; font-size: 0.95rem; }
 .about-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
+.about-card:nth-child(1) {
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+}
+
+.about-card:nth-child(2) {
+  background: linear-gradient(135deg, #ffe8d6, #ffd6cc);
+}
+
+.about-card:nth-child(3) {
+  background: linear-gradient(135deg, #dff7f2, #c7f5e8);
+}
+.about-card h4,
+.about-card p {
+  color: #1e1e1e;
+}
+
 /* ══════════════════════════════════
    SERVICES
 ══════════════════════════════════ */
