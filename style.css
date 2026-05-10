@@ -300,7 +300,7 @@ nav {
 .about-inner {
   position: relative;
   z-index: 1;
-  max-width: 780px;
+  max-width: 1100px; /* widened from 780px to fit two columns */
   margin: 0 auto;
   text-align: center;
 }
@@ -312,10 +312,44 @@ nav {
   margin-bottom: 2rem;
 }
 
-.about-cards {
+/* ── Two-column layout ── */
+.about-layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.2rem;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.8rem;
+  align-items: stretch; /* makes both columns equal height */
+}
+
+/* ── Left: Description Box ── */
+.about-card.about-description {
+  background: linear-gradient(160deg, #f3e8ff 0%, #ffd6cc 50%, #c7f5e8 100%);
+  border: 1px solid rgba(108, 71, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  line-height: 1.85;
+  font-size: 1rem;
+  color: #1e1e1e;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.about-card.about-description p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #1e1e1e;
+  line-height: 1.85;
+}
+
+/* ── Right: Cards Column ── */
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .about-card {
@@ -325,6 +359,7 @@ nav {
   padding: 1.4rem;
   backdrop-filter: blur(8px);
   transition: transform 0.25s, box-shadow 0.25s;
+  text-align: left;
 }
 
 .about-card:hover {
@@ -333,23 +368,43 @@ nav {
 }
 
 .about-card .icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
-.about-card h4 { font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; font-size: 0.95rem; }
-.about-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 
-.about-card:nth-child(1) {
+.about-card h4 {
+  font-weight: 700;
+  color: #1e1e1e;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.about-card p {
+  font-size: 0.82rem;
+  color: #1e1e1e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Individual card colors — nth-child targets within .about-cards */
+.about-cards .about-card:nth-child(1) {
   background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
 }
 
-.about-card:nth-child(2) {
+.about-cards .about-card:nth-child(2) {
   background: linear-gradient(135deg, #ffe8d6, #ffd6cc);
 }
 
-.about-card:nth-child(3) {
+.about-cards .about-card:nth-child(3) {
   background: linear-gradient(135deg, #dff7f2, #c7f5e8);
 }
-.about-card h4,
-.about-card p {
-  color: #1e1e1e;
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card.about-description {
+    height: auto;
+  }
 }
 
 /* ══════════════════════════════════
