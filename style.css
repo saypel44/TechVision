@@ -315,7 +315,7 @@ nav {
 /* ── Two-column layout ── */
 .about-layout {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.9fr 1fr;
   gap: 1.8rem;
   align-items: stretch; /* makes both columns equal height */
 }
