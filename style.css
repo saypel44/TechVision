@@ -366,6 +366,9 @@ nav {
   backdrop-filter: blur(8px);
   transition: transform 0.25s, box-shadow 0.25s;
   animation: fadeUp 0.6s ease both;
+  position: relative;
+  overflow: hidden;        /* clips video to card corners */
+  border-radius: 16px;
 }
 
 .service-card:hover {
@@ -377,13 +380,57 @@ nav {
 .service-card h3 { font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.4rem; }
 .service-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
 
-.service-card:nth-child(1) { animation-delay: 0.05s; }
+.service-card:nth-child(1) { animation-delay: 0.05s;  }
 .service-card:nth-child(2) { animation-delay: 0.12s; }
 .service-card:nth-child(3) { animation-delay: 0.18s; }
 .service-card:nth-child(4) { animation-delay: 0.24s; }
 .service-card:nth-child(5) { animation-delay: 0.30s; }
 .service-card:nth-child(6) { animation-delay: 0.36s; }
 
+.service-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* fills without stretching */
+  z-index: 0;
+}
+/* Semi-transparent dark overlay so text is readable */
+.service-overlay {
+  position: absolute;
+  inset: 0;                /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.45);  /* darken to taste */
+  z-index: 1;
+}
+
+/* Text content sits on top of video + overlay */
+.service-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem;    /* adjust spacing as needed */
+}
+
+/* Text must be white so it reads against the dark overlay */
+.service-content h3 {
+  color: #ffffff;
+}
+
+.service-content p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.service-icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Optional: subtle lift on hover */
+.service-card:hover .service-overlay {
+  background: rgba(1, 17, 37, 0.35);
+  transition: background 0.3s ease;
+}
 /* ══════════════════════════════════
    PROJECTS
 ══════════════════════════════════ */
